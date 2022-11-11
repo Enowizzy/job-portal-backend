@@ -17,6 +17,5 @@ class Job extends Model
         'message',
         'pdf',
         'image',
-     
     ];
 }
