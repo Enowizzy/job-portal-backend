@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    protected $guarded    = ['id'];
+    protected $fillable = [
+        'name',
+        'email',
+        'subject',
+        'message',
+        'pdf',
+        'image',
+     
+    ];
 }
