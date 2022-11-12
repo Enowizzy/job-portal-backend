@@ -11,9 +11,9 @@ class Job extends Model
     protected $primaryKey = 'id';
     protected $guarded    = ['id'];
     protected $fillable = [
-        'name',
-        'email',
-        'subject',
+        'position',
+        'company',
+        'location',
         'message',
         'pdf',
         'image',

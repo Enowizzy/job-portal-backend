@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('subject');
+            $table->string('position');
+            $table->string('company');
+            $table->string('location');
             $table->string('message');
             $table->string('pdf');
             $table->string('image')->nullable();

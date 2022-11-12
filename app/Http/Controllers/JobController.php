@@ -9,22 +9,29 @@ class JobController extends Controller
 {
     public function jobs(Request $request)
     {
-        if ($request->hasFile('pdf')) {
+        if ($request->hasFile('pdf') && $request->hasFile('image')) {
             $file      = $request->file('pdf');
             $filename  = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
             $picture   = date('His') . '-' . $filename;
             $file->move(public_path('jobs'), $picture);
+
+            $image_file      = $request->file('image');
+            $_image_name  = $image_file->getClientOriginalName();
+            $extension = $image_file->getClientOriginalExtension();
+            $image   = date('His') . '-' . $_image_name;
+            $image_file->move(public_path('jobs'), $image);
+
             $input = $request->all();
             $json = Job::create(array_merge(
                 $input,
                 [
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'subject' => $request->subject,
+                    'position' => $request->position,
+                    'company' => $request->company,
+                    'location' => $request->location,
                     'message' => $request->message,
                     'pdf' => $picture,
-                    'image' => $picture,
+                    'image' => $image,
                     // 'images' => implode(',', $image)
                 ]
             ));
