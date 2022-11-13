@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function jobs(Request $request)
+    public function create(Request $request)
     {
         if ($request->hasFile('pdf') && $request->hasFile('image')) {
             $file      = $request->file('pdf');
@@ -51,5 +51,11 @@ class JobController extends Controller
         } else {
             return response()->json(["message" => "Select image first."]);
         }
+    }
+
+    public function show()
+    {
+        $job_list = Job::all();
+        return response($job_list);
     }
 }

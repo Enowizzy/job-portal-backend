@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('addJobs', [JobController::class, 'jobs']);
+Route::post('addJobs', [JobController::class, 'create']);
+Route::get('job-list', [JobController::class, 'show']);
