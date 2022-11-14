@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2373eb1a827b4db5a3c3f3bc8b4e8cdc",
+    "content-hash": "41d20673593880cb4cfbe579fbae88c5",
     "packages": [
         {
             "name": "brick/math",
@@ -7810,6 +7810,59 @@
                 }
             ],
             "time": "2022-10-26T17:39:54+00:00"
+        },
+        {
+            "name": "thanhnamcnv/laravel-make-repository-service",
+            "version": "3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/namtrt/laravel-make-repository-service.git",
+                "reference": "e5c69ab378fa6cca9afb9c67ea8ff2b5e95797a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/namtrt/laravel-make-repository-service/zipball/e5c69ab378fa6cca9afb9c67ea8ff2b5e95797a2",
+                "reference": "e5c69ab378fa6cca9afb9c67ea8ff2b5e95797a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/console": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/database": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/filesystem": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/http": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/pagination": "~5.0|~6.0|~7.0|~8.0|~9.0",
+                "illuminate/support": "~5.0|~6.0|~7.0|~8.0|~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NamTran\\LaravelMakeRepositoryService\\RepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NamTran\\LaravelMakeRepositoryService\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nam Tran",
+                    "email": "thanhnam2494@gmail.com"
+                }
+            ],
+            "description": "A simple package to create a make:repository, make:service command for Laravel 8+",
+            "support": {
+                "issues": "https://github.com/namtrt/laravel-make-repository-service/issues",
+                "source": "https://github.com/namtrt/laravel-make-repository-service/tree/3.8"
+            },
+            "time": "2022-07-13T04:45:41+00:00"
         },
         {
             "name": "theseer/tokenizer",
