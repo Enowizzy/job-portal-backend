@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41d20673593880cb4cfbe579fbae88c5",
+    "content-hash": "ca3456712e32dd6890047cdb43b7b99c",
     "packages": [
         {
             "name": "brick/math",
@@ -896,6 +896,54 @@
                 }
             ],
             "time": "2022-10-26T14:07:24+00:00"
+        },
+        {
+            "name": "idtitanium/laravel-api-interface-gen",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IDTitanium/laravel-api-interface-gen.git",
+                "reference": "a486d042f82b6fbf880e0273045f2198088c6e07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IDTitanium/laravel-api-interface-gen/zipball/a486d042f82b6fbf880e0273045f2198088c6e07",
+                "reference": "a486d042f82b6fbf880e0273045f2198088c6e07",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.1",
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Titanium\\LaravelApiInterfaceGen\\LaravelApiInterfaceGenServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Titanium\\LaravelApiInterfaceGen\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Idris Lawal",
+                    "email": "idriseun222@gmail.com"
+                }
+            ],
+            "description": "A useful artisan command to generate an interface and its repository while building your api",
+            "support": {
+                "issues": "https://github.com/IDTitanium/laravel-api-interface-gen/issues",
+                "source": "https://github.com/IDTitanium/laravel-api-interface-gen/tree/v1.0.1"
+            },
+            "time": "2020-04-05T15:59:09+00:00"
         },
         {
             "name": "laravel/framework",
