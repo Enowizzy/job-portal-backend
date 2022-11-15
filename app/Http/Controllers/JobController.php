@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use App\Services\JobServiceInterface;
 
 class JobController extends Controller
 {
+    public $jobServiceInterface;
+
+    function  __construct(JobServiceInterface $jobServiceInterface)
+    {
+        $this->jobServiceInterface = $jobServiceInterface;
+    }
+
     public function create(Request $request)
     {
         if ($request->hasFile('pdf') && $request->hasFile('image')) {
@@ -55,7 +63,6 @@ class JobController extends Controller
 
     public function show()
     {
-        $job_list = Job::all();
-        return response($job_list);
+        return  $this->jobServiceInterface->getJobList();
     }
 }
