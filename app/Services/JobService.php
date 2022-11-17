@@ -15,9 +15,15 @@ class JobService implements JobServiceInterface
 
     public function getJobList()
     {
+       return Job::all();
+       
+    }
+    public function getJobImageList()
+    {
         $job_list = Job::all();
-        return response()->file(public_path('jobs/'. $job_list->image));
-        return response($job_list);
+        foreach ($job_list as $job  ) { 
+            return response()->file(public_path('jobs/'. $job->image));
+        }
     }
 
     public function pdf($pdf_file)

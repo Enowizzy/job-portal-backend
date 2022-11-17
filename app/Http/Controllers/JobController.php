@@ -65,4 +65,10 @@ class JobController extends Controller
     {
         return  $this->jobServiceInterface->getJobList();
     }
+    public function getJobImageList()
+    {
+        return  $this->jobServiceInterface->getJobImageList();
+    }
+
+    
 }
