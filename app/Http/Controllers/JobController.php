@@ -21,14 +21,14 @@ class JobController extends Controller
             $file      = $request->file('pdf');
             $filename  = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
-            $picture   = date('His') . '-' . $filename;
-            $file->move(public_path('jobs'), $picture);
+            $picture   = time() . '-' . md5(rand(1000, 10000)) . $filename;
+            $file->move(public_path('public/jobs/'), $picture);
 
             $image_file      = $request->file('image');
             $_image_name  = $image_file->getClientOriginalName();
             $extension = $image_file->getClientOriginalExtension();
-            $image   = date('His') . '-' . $_image_name;
-            $image_file->move(public_path('jobs'), $image);
+            $image   = time() . '-' . md5(rand(1000, 10000)) . $_image_name;
+            $image_file->move(public_path('public/jobs/'), $image);
 
             $input = $request->all();
             $json = Job::create(array_merge(
@@ -40,7 +40,6 @@ class JobController extends Controller
                     'message' => $request->message,
                     'pdf' => $picture,
                     'image' => $image,
-                    // 'images' => implode(',', $image)
                 ]
             ));
             if ($json) {
@@ -65,10 +64,4 @@ class JobController extends Controller
     {
         return  $this->jobServiceInterface->getJobList();
     }
-    public function getJobImageList()
-    {
-        return  $this->jobServiceInterface->getJobImageList();
-    }
-
-    
 }
