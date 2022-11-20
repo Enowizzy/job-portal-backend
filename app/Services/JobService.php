@@ -15,7 +15,7 @@ class JobService implements JobServiceInterface
 
     public function getJobList()
     {
-       return Job::all();
+        return Job::all();
     }
     public function pdf($pdf_file)
     {
@@ -26,5 +26,17 @@ class JobService implements JobServiceInterface
 
     public function response($json)
     {
+    }
+    public function viewJobById($id)
+    {
+        $job = Job::find($id);
+        if (is_null($job)) {
+            return response()->json([
+                'success' => false,
+                'code' => 2,
+                'message' => 'Oops! looks like job details not found here',
+            ]);
+        }
+        return response()->json($job, 200);
     }
 }
