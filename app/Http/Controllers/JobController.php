@@ -68,4 +68,8 @@ class JobController extends Controller
     {
         return  $this->jobServiceInterface->viewJobById($id);
     }
+    public function delete($id)
+    {
+        return  $this->jobServiceInterface->deleteJobById($id);
+    }
 }

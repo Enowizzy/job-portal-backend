@@ -10,5 +10,6 @@ interface JobServiceInterface
     public function image($image_files);
     public function response($json);
     public function viewJobById($id);
+    public function deleteJobById($id);
    
 }

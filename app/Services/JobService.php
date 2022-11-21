@@ -39,4 +39,21 @@ class JobService implements JobServiceInterface
         }
         return response()->json($job, 200);
     }
+    public function deleteJobById($id)
+    {
+        $job = Job::find($id);
+        if (is_null($job)) {
+            return response()->json([
+                'success' => false,
+                'code' => 2,
+                'message' => 'Oops! looks like job details not found here',
+            ]);
+        }
+        $image_path = public_path('public/jobs/'. $job->image);
+        $pdf_path = public_path('public/jobs/'. $job->pdf);
+        if($image_path && $pdf_path){
+            return $job->delete();
+        }
+       
+    }
 }
