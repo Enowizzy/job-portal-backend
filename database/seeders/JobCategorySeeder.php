@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\JobCategory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class JobCategorySeeder extends Seeder
 {
@@ -14,6 +16,9 @@ class JobCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $job =  JobCategory::updateOrCreate([
+            'name' => 'Gown',
+            'slug' => Str::slug('Gown'),
+        ]);
     }
 }
