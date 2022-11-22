@@ -11,5 +11,6 @@ interface JobServiceInterface
     public function response($json);
     public function viewJobById($id);
     public function deleteJobById($id);
+    public function updateJobById($id, array $data);
    
 }

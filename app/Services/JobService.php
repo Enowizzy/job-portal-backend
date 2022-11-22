@@ -58,4 +58,9 @@ class JobService implements JobServiceInterface
         }
         $job->delete();
     }
+
+    public function updateJobById($id, array $data)
+    {
+        return Job::find($id)->update($data);
+    }
 }

@@ -72,5 +72,10 @@ class JobController extends Controller
     {
         return  $this->jobServiceInterface->deleteJobById($id);
     }
+    public function update(Request $request,$id)
+    {
+        $data = $request->all();
+        return  $this->jobServiceInterface->updateJobById($id, $data);
+    }
   
 }

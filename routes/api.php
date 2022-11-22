@@ -24,3 +24,4 @@ Route::post('addJobs', [JobController::class, 'create']);
 Route::get('job-list', [JobController::class, 'show']);
 Route::get('view-job/{id}', [JobController::class, 'viewJobs']);
 Route::delete('delete-job/{id}', [JobController::class, 'delete']);
+Route::patch('update-job/{id}', [JobController::class, 'update']);
