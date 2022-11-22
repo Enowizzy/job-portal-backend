@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Job;
 use App\Services\JobServiceInterface;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 
 class JobService implements JobServiceInterface
 {
@@ -49,11 +50,12 @@ class JobService implements JobServiceInterface
                 'message' => 'Oops! looks like job details not found here',
             ]);
         }
-        $image_path = public_path('public/jobs/'. $job->image);
-        $pdf_path = public_path('public/jobs/'. $job->pdf);
-        if($image_path && $pdf_path){
-            return $job->delete();
+        foreach($job->image as $image){
+            Storage::delete("public/public/jobs/{$image}");
         }
-       
+        foreach($job->pdf as $pdf){
+            Storage::delete("public/public/jobs/{$pdf}");
+        }
+        $job->delete();
     }
 }
