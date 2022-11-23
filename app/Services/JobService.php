@@ -7,6 +7,7 @@ use App\Models\JobCategory;
 use App\Services\JobServiceInterface;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class JobService implements JobServiceInterface
 {
