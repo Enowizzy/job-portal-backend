@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Job;
+use App\Models\JobCategory;
 use App\Services\JobServiceInterface;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
@@ -62,5 +63,10 @@ class JobService implements JobServiceInterface
     public function updateJobById($id, array $data)
     {
         return Job::find($id)->update($data);
+    }
+
+    public function getJobCategories()
+    {
+        return JobCategory::all();
     }
 }

@@ -16,43 +16,43 @@ class JobCategorySeeder extends Seeder
      */
     public function run()
     {
-        $job =  JobCategory::updateOrCreate([
+        $backend =  JobCategory::updateOrCreate([
             'name' => 'Backend Developer',
             'slug' => Str::slug('Backend Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $frontend =  JobCategory::updateOrCreate([
             'name' => 'Frontend Developer',
             'slug' => Str::slug('Frontend Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $software =  JobCategory::updateOrCreate([
             'name' => 'Software Engineer',
             'slug' => Str::slug('Software Engineer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $developer =  JobCategory::updateOrCreate([
             'name' => 'Software Developer',
             'slug' => Str::slug('Software Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $full =  JobCategory::updateOrCreate([
             'name' => 'Full Stack Software Developer',
             'slug' => Str::slug('Full Stack Software Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $network =  JobCategory::updateOrCreate([
             'name' => 'Network Engineer',
             'slug' => Str::slug('Network Engineer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $db =  JobCategory::updateOrCreate([
             'name' => 'Database Developer',
             'slug' => Str::slug('Database Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $block =  JobCategory::updateOrCreate([
             'name' => 'Blockchain Developer',
             'slug' => Str::slug('Blockchain Developer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $cyber =  JobCategory::updateOrCreate([
             'name' => 'CyberSecurity Engineer',
             'slug' => Str::slug('CyberSecurity Engineer'),
         ]);
-        $job =  JobCategory::updateOrCreate([
+        $cloud =  JobCategory::updateOrCreate([
             'name' => 'Cloud Security Engineer',
             'slug' => Str::slug('Cloud Security Engineer'),
         ]);

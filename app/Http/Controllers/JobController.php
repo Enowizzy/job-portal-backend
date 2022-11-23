@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Actions\CreateJob;
 use Illuminate\Http\Request;
 use App\Services\JobServiceInterface;
+use App\Http\Requests\CreateJobRequest;
 
 class JobController extends Controller
 {
@@ -14,52 +16,10 @@ class JobController extends Controller
     {
         $this->jobServiceInterface = $jobServiceInterface;
     }
-
-    public function create(Request $request)
+    public function create(CreateJobRequest $request, CreateJob $createJob)
     {
-        if ($request->hasFile('pdf') && $request->hasFile('image')) {
-            $file      = $request->file('pdf');
-            $filename  = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
-            $picture   = time() . '-' . md5(rand(1000, 10000)) . $filename;
-            $file->move(public_path('public/jobs/'), $picture);
-
-            $image_file      = $request->file('image');
-            $_image_name  = $image_file->getClientOriginalName();
-            $extension = $image_file->getClientOriginalExtension();
-            $image   = time() . '-' . md5(rand(1000, 10000)) . $_image_name;
-            $image_file->move(public_path('public/jobs/'), $image);
-
-            $input = $request->all();
-            $json = Job::create(array_merge(
-                $input,
-                [
-                    'position' => $request->position,
-                    'company' => $request->company,
-                    'location' => $request->location,
-                    'message' => $request->message,
-                    'pdf' => $picture,
-                    'image' => $image,
-                ]
-            ));
-            if ($json) {
-                return response()->json([
-                    'success' => true,
-                    'code' => 1,
-                    'message' => 'job posted successful',
-                ]);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'code' => 2,
-                    'message' => 'error has occur please try again later',
-                ], 500);
-            }
-        } else {
-            return response()->json(["message" => "Select image first."]);
-        }
+        return $createJob->handle($request);
     }
-
     public function show()
     {
         return  $this->jobServiceInterface->getJobList();
@@ -76,6 +36,11 @@ class JobController extends Controller
     {
         $data = $request->all();
         return  $this->jobServiceInterface->updateJobById($id, $data);
+    }
+
+    public function job_categories()
+    {
+        return $this->jobServiceInterface->getJobCategories();
     }
   
 }

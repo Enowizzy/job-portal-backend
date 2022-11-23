@@ -12,5 +12,6 @@ interface JobServiceInterface
     public function viewJobById($id);
     public function deleteJobById($id);
     public function updateJobById($id, array $data);
+    public function getJobCategories();
    
 }
