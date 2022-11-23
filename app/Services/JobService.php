@@ -52,20 +52,19 @@ class JobService implements JobServiceInterface
                 'message' => 'Oops! looks like job details not found here',
             ]);
         }
-        foreach($job->image as $image){
+        foreach ($job->image as $image) {
             Storage::delete("public/public/jobs/{$image}");
-	    $image_path = "/public/jobs/$image";  // Value is not URL but directory file path
-		if(File::exists($image_path)) {
-	    File::delete($image_path);
-	}
+            $image_path = "/public/jobs/$image";  // Value is not URL but directory file path
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
         }
-        foreach($job->pdf as $pdf){
+        foreach ($job->pdf as $pdf) {
             Storage::delete("public/public/jobs/{$pdf}");
-		$image_path = "/public/jobs/$pdf";  // Value is not URL but directory file path
-	if(File::exists($image_path)) {
-    	File::delete($image_path);
-		}
-
+            $image_path = "/public/jobs/$pdf";  // Value is not URL but directory file path
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
         }
         $job->delete();
     }
