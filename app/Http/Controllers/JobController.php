@@ -37,7 +37,6 @@ class JobController extends Controller
         $data = $request->all();
         return  $this->jobServiceInterface->updateJobById($id, $data);
     }
-
     public function job_categories()
     {
         return $this->jobServiceInterface->getJobCategories();

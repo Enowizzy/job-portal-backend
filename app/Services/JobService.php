@@ -52,11 +52,11 @@ class JobService implements JobServiceInterface
                 'message' => 'Oops! looks like job details not found here',
             ]);
         }
-            Storage::delete("public/public/jobs/".$job->image);
-     
-            Storage::delete("public/public/jobs/".$job->pdf);
-       
-        if ( $job->delete()) {
+        Storage::delete("public/public/jobs/" . $job->image);
+
+        Storage::delete("public/public/jobs/" . $job->pdf);
+
+        if ($job->delete()) {
             return response()->json([
                 'success' => true,
                 'code' => 1,
@@ -67,7 +67,20 @@ class JobService implements JobServiceInterface
 
     public function updateJobById($id, array $data)
     {
-        return Job::find($id)->update($data);
+        $update = Job::find($id)->update($data);
+        if ($update) {
+            return response()->json([
+                'success' => true,
+                'code' => 1,
+                'message' => 'Job Updated Successfully!',
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'code' => 2,
+                'message' => 'Something went wrong please try again or contact the Administrator!',
+            ]);
+        }
     }
 
     public function getJobCategories()
