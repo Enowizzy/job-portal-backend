@@ -34,6 +34,11 @@ class CreateJob
                     'company' => $request->company,
                     'location' => $request->location,
                     'message' => $request->message,
+                    'job_link' => $request->job_link,
+                    'job_nature' => $request->job_nature,
+                    'end_date' => $request->end_date,
+                    'edu_exp' => $request->edu_exp,
+                    'vacancy' => $request->vacancy,
                     'pdf' => $picture,
                     'image' => $image,
                 ]

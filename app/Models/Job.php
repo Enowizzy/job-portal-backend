@@ -15,6 +15,11 @@ class Job extends Model
         'company',
         'location',
         'message',
+        'job_link',
+        'job_nature',
+        'end_date',
+        'edu_exp',
+        'vacancy',
         'pdf',
         'image',
     ];
