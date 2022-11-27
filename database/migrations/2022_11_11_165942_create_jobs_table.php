@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('company');
             $table->string('location');
             $table->string('message');
+            $table->string('job_link');
+            $table->string('job_nature');
+            $table->string('end_date');
+            $table->string('edu_exp');
+            $table->string('vacancy');
             $table->string('pdf');
             $table->string('image')->nullable();
             $table->timestamps();
