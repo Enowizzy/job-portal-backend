@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('addJobs', [JobController::class, 'create']);
 Route::get('job-list', [JobController::class, 'show']);
+Route::get('latest-list', [JobController::class, 'view']);
 Route::get('view-job/{id}', [JobController::class, 'viewJobs']);
 Route::delete('delete-job/{id}', [JobController::class, 'delete']);
 Route::patch('update-job/{id}', [JobController::class, 'update']);

@@ -20,6 +20,10 @@ class JobService implements JobServiceInterface
     {
         return Job::all();
     }
+    public function getLatestJobList()
+    {
+        return Job::take(2)->orderBy('created_at', 'desc')->get();
+    }
     public function pdf($pdf_file)
     {
     }

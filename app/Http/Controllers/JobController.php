@@ -24,6 +24,10 @@ class JobController extends Controller
     {
         return  $this->jobServiceInterface->getJobList();
     }
+    public function view()
+    {
+        return  $this->jobServiceInterface->getLatestJobList();
+    }
     public function viewJobs($id)
     {
         return  $this->jobServiceInterface->viewJobById($id);
