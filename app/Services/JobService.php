@@ -22,7 +22,7 @@ class JobService implements JobServiceInterface
     }
     public function getLatestJobList()
     {
-        return Job::take(2)->orderBy('created_at', 'desc')->get();
+        return Job::take(3)->orderBy('created_at', 'desc')->get();
     }
     public function pdf($pdf_file)
     {
