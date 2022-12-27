@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+Route::post('contact', [ContactController::class, 'create']);
 Route::post('addJobs', [JobController::class, 'create']);
 Route::get('job-list', [JobController::class, 'show']);
 Route::get('latest-list', [JobController::class, 'view']);
